@@ -1,0 +1,150 @@
+.hero-section {
+    min-height: 657px;
+    height: 64vh;
+    border-radius: 10px;
+    display: flex;
+    grid-template-columns: repeat(12, 1fr);
+    overflow: hidden;
+    box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    @include mobile-only{
+      box-shadow: none;
+      height: fit-content;
+      min-height: auto;
+    }
+
+    
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 56px 4%;
+    color: #fff;
+    text-align: left;
+   
+    @include mobile-only{
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+      background: transparent;
+      color: #000000;
+      border: none;
+      box-shadow: none;
+      }
+    &::after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #232323;
+      left: 0;
+      top: 0;
+      @include mobile-only{
+        content: unset;
+      }
+    }
+    & > *{
+      position: relative;
+      z-index: 1;
+    }
+  }
+  
+  
+  .header{
+    z-index: 10;
+    width: 46%;
+    .hero-headline {
+      font-size: 96px;
+      font-family:'DM Sans';
+      font-weight: normal;
+      white-space: nowrap;
+      @include small-desktop{
+        font-size: 78px;
+      }
+      @include mobile-only{
+        font-size: 40px;
+        white-space: normal;
+        width: 100%;
+      }
+    }
+    .hero-text {
+      width: 100%;
+      max-width: 500px;
+      font-size: 24px;
+      font-weight: 400;
+      margin-top: 7.1vh;
+      padding: 0;
+      z-index: 999;
+      @include small-desktop{
+        width: 95%;
+        font-size: 20px;
+      }
+      @include mobile-only{
+        max-width: none;
+        margin-top: 17px;
+        font-size: 13px;
+
+      }
+    }
+    @include mobile-only{
+      width: 100%;
+      margin-bottom: 20px;
+      .break{
+        display: none;
+      }
+
+    }
+  }
+  
+  .hero-img {
+    position: absolute;
+    height: 100%;
+    width: 54%;
+    right: 0;
+    top:0;
+    z-index: 1;
+    @include mobile-only{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background-color: red;
+      overflow: hidden;
+      order: 2;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      z-index: -1;
+      object-fit: cover;
+    }
+  
+  }
+  
+  @media  screen and (max-width: 1056px) {
+    .btn-signup{
+      font-size: 1.1rem;
+    }
+    
+  }
+
+  @media screen and (max-width:768px) {
+   
+  
+    .btn--modal{
+      order: 3;
+    }
+  
+    .button-wrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      order: 3;
+    }
+  }
+ 
+  
