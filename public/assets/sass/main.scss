@@ -3,6 +3,7 @@
 
 @import "./components/button";
 @import "./components/checkboxes";
+@import "./components/errors";
 @import "./layout/navbar";
 @import "./layout/modal-form";
 @import "./utils/animations";
@@ -13,77 +14,7 @@
 
 // Landing Page
   
-  body {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-default);
-    font-size: 18px;
-    /* max-width: 1300px; */
-    margin: 0 auto;
-    height: 100%;
-    width: 100%;
-  }
   
-  p {
-    margin-bottom: 0;
-    padding: 0.5vw;
-  }
-  
-  img {
-    padding-right: 1rem;
-  }
-  
-  
-  
-  main {
-    font-size: 130%;
-    font-weight: bolder;
-    color: black;
-    padding-top: 0.5vw;
-    /* padding-left: 2vw; */
-    /* padding-right: 2vw; */
-    padding-left: 3.5%;
-    padding-right: 3.5%;
-    /* margin: 1px 20px 15px; */
-    border-radius: 2rem;
-    text-align: justify;
-  
-  
-  }
-  
- 
-  
-  .error{
-    // content: "error";
-    // position: absolute;
-    // left: 0;
-    // bottom:0;
-    font-size: 10px;
-    color: red;
-    display: none;
-  }
-
-  .danger{
-    border-color: $color-primary;
-    animation: buzzing 100ms 3;
-  }
-
-  @keyframes buzzing {
-    0%{
-      transform: translateX(-10px);
-    }
-    100%{
-      transform: translateX(10px);
-    }
-    
-  }
-
-
-
-  .btn--close{
-    z-index: 400;
-  }
-
 
   
  

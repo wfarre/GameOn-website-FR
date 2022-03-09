@@ -13,6 +13,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".btn--modal");
 const formData = document.querySelectorAll(".formData");
 
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -29,9 +30,4 @@ function closeModal() {
 
 
 
-/////////////////////////////////////////////////////////
-
-// set the current year in the footer 
-const currentYear = new Date().getFullYear();
-
-document.getElementById("this-year").innerHTML = currentYear;
+// module.exports = { contentHeight } ;

@@ -20,15 +20,10 @@ const closeBtn = document.querySelector(".btn--close");
 const submitBtn = document.querySelector(".btn--submit");
 
 
-// target the content of the modal to change the height if necessary 
+/* target the content of the modal to change the height if necessary  */
 const content = document.querySelector(".content");
 const modalBody = document.querySelector(".modal-body");
 const form = document.getElementById("form-section");
-
-// initialize height of the content of the form 
-let contentHeight = 847;
-
-console.log(contentHeight);
 
 /* validate():  validate the form when submitted */
 function validate(event) {
@@ -45,131 +40,13 @@ function validate(event) {
     errorMessages.push("location not valid");
   }
 
-  if (checkIfInputValid(agreeCheckbox) === false) {
-    errorMessages.push("agreeCheckbox not valid")
-  }
-
   if (errorMessages.length === 0) {
     inputValidatedDisplay();
+    removeDanger(submitBtn.parentElement);
+  } else{
+    displayDanger(submitBtn.parentElement);
   }
 } // validate()
-
-
-
-let city = "";
-
-/* checkLocation() : check if user has selected a location or not  */ 
-function checkLocation() {
-  let selectedLocation = document.querySelector('input[name="location"]:checked');
-  const errorMessage = document.querySelector("#location-entry ~ .error");
-
-  if (selectedLocation != null) {
-    contentHeight -= 13;
-    content.style.height = contentHeight + "px";
-    errorMessage.style.display = "none";
-    return city = selectedLocation.value;
-  } else {
-    errorMessage.style.display = "inline";
-    return false
-  }
-} //checkLocation()
-
-
-/* checkIfInputValid(element) : check if every input is valid   */ 
-function checkIfInputValid(element) {
-  // pattern to check email 
-  const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-  const elementId = element.id;
-  const elementValue = element.value;
-  const targetElement = document.getElementById(elementId);
-
-  // target the error message corresponding to the element 
-  const errorMessage = document.querySelector("#" + elementId + "~ .error");
-
-  let isValid = false;
-
-  /* removeDanger() : if element valid, remove error  */
-  function removeDanger() {
-    if (targetElement.classList.contains("danger")) {
-      contentHeight -= 13;
-    } else {
-      contentHeight = contentHeight;
-    }
-    targetElement.classList.remove("danger");
-    errorMessage.style.display = "none";
-    content.style.height = contentHeight + "px";
-  }
-
-  /* displayDanger() : if element not valid, display error  */
-  function displayDanger() {
-    if (targetElement.classList.contains("danger")) {
-      contentHeight = contentHeight;
-    } else {
-      contentHeight += 13;
-    }
-    targetElement.classList.add("danger");
-    errorMessage.style.display = "inline";
-    content.style.height = contentHeight + "px";
-  }
-
-  switch (elementId) {
-    case "first":
-      if (elementValue.trim().length > 2) {
-        removeDanger();
-        isValid = true;
-      } else {
-        displayDanger();
-      }
-      break;
-    case "last":
-      if (elementValue.trim().length > 2) {
-        removeDanger();
-        isValid = true;
-      } else {
-        displayDanger();
-      }
-      break;
-    case "email":
-      if (elementValue.match(pattern)) {
-        removeDanger();
-        isValid = true;
-      } else {
-        displayDanger();
-      }
-      break;
-    case "birthdate":
-      if (elementValue) {
-        removeDanger();
-        isValid = true;
-      } else {
-        displayDanger();
-      }
-      break;
-    case "quantity":
-      if (elementValue) {
-        removeDanger();
-        isValid = true;
-      } else {
-        displayDanger();
-      }
-      break;
-    case "checkbox1":
-      if (element.checked) {
-        removeDanger();
-        isValid = true;
-      } else {
-        displayDanger();
-      }
-      default:
-        break;
-  }
-
-
-  console.log(isValid);
-  return isValid;
-  
-} // checkIfInputValid()
 
 
 // EVENT LISTENER FOR THE DIFFERENT ENTRIES 
@@ -200,24 +77,6 @@ locations.forEach(location => {
     checkLocation();
   })
 });
-
-
-
-
-
-// constructor for a new user 
-class NewUser {
-  constructor(firstName, lastName, email, birthdate, quantity, city, agreementAgree, newsletterAgree) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.birthdate = birthdate;
-    this.quantity = quantity;
-    this.city = city;
-    this.agreementAgree = agreementAgree;
-    this.newsletterAgree = newsletterAgree;
-  }
-}
 
 // DOM element to display the thank you message 
 const thankYouMessage = document.querySelector(".thank-you-message");
