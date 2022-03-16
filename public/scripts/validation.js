@@ -31,52 +31,62 @@ function validate(event) {
   event.preventDefault();
 
   inputBoxes.forEach(inputBox => {
-    if (checkIfInputValid(inputBox) === false) {
+    if (checkIfError(inputBox) === false) {
       errorMessages.push(inputBox.id + " not valid");
     }
   });
 
-  if (checkLocation() === false) {
-    errorMessages.push("location not valid");
+  locations.forEach(location => {
+    if(checkIfError(location) === false){
+      errorMessages.push("location is not valid");
+    }
+  });
+
+  if(checkIfError(agreeCheckbox) === false){
+    errorMessages.push("checkbox is not valid");
   }
 
   if (errorMessages.length === 0) {
     inputValidatedDisplay();
     removeDanger(submitBtn.parentElement);
-  } else{
+  } else {
     displayDanger(submitBtn.parentElement);
   }
 } // validate()
 
 
 // EVENT LISTENER FOR THE DIFFERENT ENTRIES 
-
-/* event listener for the different input boxes */
+// /* event listener for the different input boxes */
 inputBoxes.forEach(inputBox => {
-/* check if input valid when input box is not focus anymore */
+  /* check if input valid when input box is not focus anymore */
   inputBox.addEventListener("blur", (event) => {
     const element = event.target;
-    checkIfInputValid(element);
-  });
+    checkIfError(element);
+  }); //inputBoxes.forEach
 
-/*   check where there is a modification in the input if input is valid or not */  
-inputBox.addEventListener("input", (event) => {
+  inputBox.addEventListener("input", (event)=> {
     const element = event.target;
-    checkIfInputValid(element);
-  });
-}); //inputBoxes.forEach
-
-/* event listener for the checkbox of "conditions d'utilisation" */
-agreeCheckbox.addEventListener("click", () => {
-  checkIfInputValid(agreeCheckbox);
-});
-
-/* event listener for the locations if one of them is clicked the error message disapears   */ 
-locations.forEach(location => {
-  location.addEventListener("click", () => {
-    checkLocation();
+    checkIfError(element)
   })
+
 });
+
+
+/* Add eventlistener for the first checkbox "conditions d'utilisation" */
+agreeCheckbox.addEventListener("click", (event) => {
+  const element = event.target;
+  checkIfError(element);
+});
+
+/* Add eventlistener for "location" inputs */
+locations.forEach(location => {
+  location.addEventListener("click", (event) => {
+    const element = event.target;
+    checkIfError(element);
+  })
+})
+
+ 
 
 // DOM element to display the thank you message 
 const thankYouMessage = document.querySelector(".thank-you-message");
@@ -99,6 +109,8 @@ function inputValidatedDisplay() {
     inputBox.value = "";
   });
   document.querySelector("input[name='location']:checked").checked = false;
+  agreeCheckbox.checked = false;
+  newsletterAgree.checked = false;
 
   // display thank you message instead of the form 
   modalBody.style.display = "none";

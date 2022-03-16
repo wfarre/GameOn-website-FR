@@ -30,4 +30,3 @@ function closeModal() {
 
 
 
-// module.exports = { contentHeight } ;
