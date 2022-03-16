@@ -27,8 +27,9 @@ const form = document.getElementById("form-section");
 
 /* validate():  validate the form when submitted */
 function validate(event) {
-  let errorMessages = [];
   event.preventDefault();
+
+  let errorMessages = [];
 
   inputBoxes.forEach(inputBox => {
     if (checkIfError(inputBox) === false) {
@@ -52,7 +53,8 @@ function validate(event) {
   } else {
     displayDanger(submitBtn.parentElement);
   }
-} // validate()
+} 
+
 
 
 // EVENT LISTENER FOR THE DIFFERENT ENTRIES 
