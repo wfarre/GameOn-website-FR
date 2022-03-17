@@ -118,3 +118,7 @@ function inputValidatedDisplay() {
   modalBody.style.display = "none";
   thankYouMessage.style.display = "flex";
 }
+
+
+
+// jest 
