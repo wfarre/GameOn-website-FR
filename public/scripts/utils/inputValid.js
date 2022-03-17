@@ -112,13 +112,11 @@ function checkIfInputIsValid(element, type) {
 If the name is valid (i.e.: the length of the input is more than 2 characters), the function return "true" */
 
 function checkIfNameIsValid(elementValue) {
-
-    return elementValue.trim().length > 2;
-    // if (elementValue.trim().length > 2) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
+    if (elementValue.trim().length > 2) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /* checkIfEmailIsValid(elementValue) :
@@ -136,9 +134,9 @@ function checkIfEmailIsValid(elementValue) {
 /* checkIfDateIsValid(elementValue) :
 If the name is valid (i.e.: if there is an input), the function return "true" */
 function checkIfDateIsValid(elementValue) {
-
     // check if it is date 
-    if (elementValue) {
+    console.log(Date.parse(elementValue));
+    if (Date.parse(elementValue)) {
         return true;
     } else {
         return false;
@@ -159,7 +157,7 @@ function checkIfCheckboxIsChecked(element) {
 /* checkIfQuantityIsValid(elementValue) :
 If the name is valid (i.e.: if there is an input), the function return "true" */
 function checkIfQuantityIsValid(elementValue) {
-    if (elementValue) {
+    if (parseInt(elementValue) >= 0) {
         return true;
     } else {
         return false;
@@ -177,4 +175,4 @@ function checkIfLocationIsValid() {
     } else {
         return false
     }
-} //checkLocation
+}
