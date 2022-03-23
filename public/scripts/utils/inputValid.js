@@ -8,22 +8,16 @@ function checkIfInputIsValid(element, type) {
     switch (type) {
         case "name":
             return checkIfNameIsValid(elementValue);
-            break;
         case "date":
             return checkIfDateIsValid(elementValue);
-            break;
         case "email":
             return checkIfEmailIsValid(elementValue);
-            break;
         case "quantity":
             return checkIfQuantityIsValid(elementValue);
-            break;
         case "city":
             return checkIfLocationIsValid();
-            break;
         case "agreement":
             return checkIfCheckboxIsChecked(element);
-            break;
 
         default:
             type
