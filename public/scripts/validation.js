@@ -49,9 +49,9 @@ function validate(event) {
 
   if (errorMessages.length === 0) {
     inputValidatedDisplay();
-    removeDanger(submitBtn.parentElement);
+    removeError(submitBtn.parentElement);
   } else {
-    displayDanger(submitBtn.parentElement);
+    displayError(submitBtn.parentElement);
   }
 } 
 
@@ -120,5 +120,3 @@ function inputValidatedDisplay() {
 }
 
 
-
-// jest 

@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  // margin: 3.5%;
   padding: 3.5%;
 
   @include small-desktop {
@@ -93,7 +92,7 @@
 
     .main-navbar{
       @include mobile-only{
-      width: 200px;
+      width: 250px;
       }
     }
 

@@ -1,9 +1,9 @@
-/* removeDanger() : if element valid, remove error  */
-function removeDanger(formData) {
+/* removeError() : if element valid, remove error  */
+function removeError(formData) {
   formData.setAttribute("data-error-visible", false);
 }
 
-/* displayDanger() : if element not valid, display error  */
-function displayDanger(formData) {
+/* displayError() : if element not valid, display error  */
+function displayError(formData) {
   formData.setAttribute("data-error-visible", true);
 }

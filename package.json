@@ -1,10 +1,11 @@
 {
   "name": "gameon-website-fr",
+  "type":"module",
   "version": "1.0.0",
   "description": "1. Forkez ce repo ; 2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ; 3. Il n'y a aucune dépendance ; 4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "sass": "sass --watch public/assets/sass/main.scss public/assets/css/modal.css"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/wfarre/GameOn-website-FR#readme",
   "dependencies": {
+    "jest": "^27.5.1",
     "sass": "^1.49.9"
   }
 }
