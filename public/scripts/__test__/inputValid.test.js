@@ -1,44 +1,41 @@
 const { TestWatcher } = require("jest");
-import {checkIfDateIsValid, checkIfEmailIsValid, checkIfNameIsValid} from "../public/scripts/utils/inputValid";
 
 
-// function checkIfNameIsValid(elementValue) {
-//     if (elementValue.trim().length > 2) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+function checkIfNameIsValid(elementValue) {
+    if (elementValue.trim().length > 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-// function checkIfEmailIsValid(elementValue) {
-//     const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+function checkIfEmailIsValid(elementValue) {
+    const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-//     if (elementValue.match(pattern)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+    if (elementValue.match(pattern)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-// /* checkIfDateIsValid(elementValue) :
-// If the name is valid (i.e.: if there is an input), the function return "true" */
-// function checkIfDateIsValid(elementValue) {
-//     // check if it is date 
-//     console.log(Date.parse(elementValue));
-//     if (Date.parse(elementValue)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+function checkIfDateIsValid(elementValue) {
+    // check if it is date 
+    console.log(Date.parse(elementValue));
+    if (Date.parse(elementValue)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-// function checkIfQuantityIsValid(elementValue) {
-//     if (parseInt(elementValue) >= 0) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+function checkIfQuantityIsValid(elementValue) {
+    if (parseInt(elementValue) >= 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 test('check if name is valid', () => {
     expect(checkIfNameIsValid("hello")).toBe(true);
@@ -59,10 +56,9 @@ test('check if name is valid', () => {
   });
 
 
-  test('check if date is valid', () => {
-    expect(checkIfDateIsValid("1")).toBe(true);
-    expect(checkIfDateIsValid("0")).toBe(true);
-    expect(checkIfDateIsValid("10")).toBe(true);
-    expect(checkIfDateIsValid("edjiasjdiojweodjef")).toBe(false);
-
+  test('check if quatity is valid', () => {
+    expect(checkIfQuantityIsValid("1")).toBe(true);
+    expect(checkIfQuantityIsValid("0")).toBe(true);
+    expect(checkIfQuantityIsValid("10")).toBe(true);
+    expect(checkIfQuantityIsValid("edjiasjdiojweodjef")).toBe(false);
   });

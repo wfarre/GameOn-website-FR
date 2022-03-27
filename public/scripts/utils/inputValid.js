@@ -1,8 +1,9 @@
 let city = "";
-/* checkIfInputIsValid()
-check if the input is valid according to his type */
+/**
+ * checkIfInputIsValid():
+ * check if the input is valid according to his type
+ *  */
 function checkIfInputIsValid(element, type) {
-    const elementId = element.id;
     const elementValue = element.value;
 
     switch (type) {
@@ -20,15 +21,16 @@ function checkIfInputIsValid(element, type) {
             return checkIfCheckboxIsChecked(element);
 
         default:
-            type
-            break;
+            return false;
     }
 }
 
 
-/* checkIfNameIsValid(elementValue) :
-If the name is valid (i.e.: the length of the input is more than 2 characters), the function return "true" */
-
+/**
+ * checkIfNameIsValid(elementValue) :
+ * If the name is valid (i.e.: the length of the input is more than 2 characters), 
+ * the function return "true" 
+ * */
 function checkIfNameIsValid(elementValue) {
     if (elementValue.trim().length > 2) {
         return true;
@@ -37,8 +39,11 @@ function checkIfNameIsValid(elementValue) {
     }
 }
 
-/* checkIfEmailIsValid(elementValue) :
-If the name is valid (i.e.: the email match the pattern), the function return "true" */
+/**
+ * checkIfEmailIsValid(elementValue) :
+ * If the email is valid 
+ * (i.e.: the email match the pattern), the function return "true" 
+ * */
 function checkIfEmailIsValid(elementValue) {
     const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -49,8 +54,11 @@ function checkIfEmailIsValid(elementValue) {
     }
 }
 
-/* checkIfDateIsValid(elementValue) :
-If the name is valid (i.e.: if there is an input), the function return "true" */
+/**
+ * checkIfDateIsValid(elementValue) :
+ * If the date is valid 
+ * (i.e.: if there is an input), the function return "true" 
+ * */
 function checkIfDateIsValid(elementValue) {
     // check if it is date 
     if (Date.parse(elementValue)) {
@@ -60,8 +68,11 @@ function checkIfDateIsValid(elementValue) {
     }
 }
 
-/* checkIfCheckbocIsValid(elementValue) :
-If the name is valid (i.e.: if it is checked), the function return "true" */
+/**
+ * checkIfCheckbocIsValid(elementValue) :
+ * If the checkbox is checked, 
+ * the function return "true" 
+ * */
 function checkIfCheckboxIsChecked(element) {
     if (element.checked) {
         return true;
@@ -71,8 +82,11 @@ function checkIfCheckboxIsChecked(element) {
 
 }
 
-/* checkIfQuantityIsValid(elementValue) :
-If the name is valid (i.e.: if there is an input), the function return "true" */
+/**
+ * checkIfQuantityIsValid(elementValue) :
+ * If the quantity is valid (i.e.: if there is an input), 
+ * the function return "true" 
+ * */
 function checkIfQuantityIsValid(elementValue) {
     if (parseInt(elementValue) >= 0) {
         return true;
@@ -82,7 +96,8 @@ function checkIfQuantityIsValid(elementValue) {
 }
 
 /* checkIfLocationIsValid()
-the function will return if one of the location is selected */
+the function will return if one of the location is selected*/
+/** */
 function checkIfLocationIsValid() {
     let selectedLocation = document.querySelector('input[name="location"]:checked');
 
@@ -93,5 +108,3 @@ function checkIfLocationIsValid() {
         return false
     }
 }
-
-

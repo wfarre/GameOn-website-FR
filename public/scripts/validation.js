@@ -1,4 +1,3 @@
-//////////////////////////////////////////////////////////////
 /* inputBoxes is an Array targeting the different text-control   */
 const inputBoxes = document.querySelectorAll(".text-control");
 /* locations is an array targeting the different checkboxes for the locations  */
@@ -25,7 +24,10 @@ const content = document.querySelector(".content");
 const modalBody = document.querySelector(".modal-body");
 const form = document.getElementById("form-section");
 
-/* validate():  validate the form when submitted */
+/**
+ * validate():  
+ * validate the form when submitted 
+ * */
 function validate(event) {
   event.preventDefault();
 
@@ -38,12 +40,12 @@ function validate(event) {
   });
 
   locations.forEach(location => {
-    if(checkIfError(location) === false){
+    if (checkIfError(location) === false) {
       errorMessages.push("location is not valid");
     }
   });
 
-  if(checkIfError(agreeCheckbox) === false){
+  if (checkIfError(agreeCheckbox) === false) {
     errorMessages.push("checkbox is not valid");
   }
 
@@ -53,7 +55,7 @@ function validate(event) {
   } else {
     displayError(submitBtn.parentElement);
   }
-} 
+}
 
 
 
@@ -64,9 +66,9 @@ inputBoxes.forEach(inputBox => {
   inputBox.addEventListener("blur", (event) => {
     const element = event.target;
     checkIfError(element);
-  }); //inputBoxes.forEach
+  });
 
-  inputBox.addEventListener("input", (event)=> {
+  inputBox.addEventListener("input", (event) => {
     const element = event.target;
     checkIfError(element)
   })
@@ -88,12 +90,16 @@ locations.forEach(location => {
   })
 })
 
- 
 
-// DOM element to display the thank you message 
+
+/* DOM element to display the thank you message  */
 const thankYouMessage = document.querySelector(".thank-you-message");
 
-// Everies entry valid, when Promise is resovled, display this: 
+/**
+ * inputValidatedDisplay()  
+ * if every entry is valid, we will display the "thank you" message 
+ * and send in the console the information of the new user
+ * */
 function inputValidatedDisplay() {
   const user = new NewUser(
     firstName.value,
@@ -118,5 +124,3 @@ function inputValidatedDisplay() {
   modalBody.style.display = "none";
   thankYouMessage.style.display = "flex";
 }
-
-

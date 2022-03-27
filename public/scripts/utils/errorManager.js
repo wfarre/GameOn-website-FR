@@ -1,5 +1,8 @@
-/* checkIfError() : return error to the user if the input is not filled correctly */
-function checkIfError(element) {
+/** 
+ * checkIfError() : 
+ * return error to the user if the input is not filled correctly 
+ * */
+ function checkIfError(element) {
   const elementType = element.getAttribute("data-type");
   let formDataToTarget = element.parentElement;
 
@@ -20,3 +23,25 @@ function checkIfError(element) {
     return false;
   }
 }
+
+/**
+ * removeError() : 
+ * if element valid, remove error  
+ * */
+ function removeError(formData) {
+  formData.setAttribute("data-error-visible", false);
+}
+
+/**
+ * displayError() : 
+ * if element not valid, display error 
+ *  */
+function displayError(formData) {
+  formData.setAttribute("data-error-visible", true);
+}
+
+
+
+
+
+// element.closest(".formData")
