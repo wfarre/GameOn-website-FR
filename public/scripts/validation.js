@@ -70,8 +70,10 @@ inputBoxes.forEach(inputBox => {
 
   inputBox.addEventListener("input", (event) => {
     const element = event.target;
-    checkIfError(element)
-  })
+    const submitBtnWrapper = document.querySelector(".formData.submit");
+    checkIfError(element);
+    removeError(submitBtnWrapper);
+  });
 
 });
 
